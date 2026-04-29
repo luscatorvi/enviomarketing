@@ -1,0 +1,59 @@
+name: 📧 Via Star — Disparo Expo Revestir 2026
+
+on:
+  # ── Agendado ──────────────────────────────────────────────
+  # Horário em UTC. Exemplo abaixo: 10h00 de Brasília = 13h00 UTC
+  # Ajuste a data/hora conforme necessário
+  schedule:
+    - cron: "0 13 * * *"   # <── mude aqui: "MINUTO HORA * * *"
+
+  # ── Disparo manual pelo GitHub ────────────────────────────
+  workflow_dispatch:
+    inputs:
+      modo_teste:
+        description: "Modo teste? (true = loga sem enviar)"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      destinatario_teste:
+        description: "E-mail para teste (opcional, substitui planilha)"
+        required: false
+        default: ""
+
+jobs:
+  disparar:
+    name: Disparar campanha
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 📦 Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: 📧 Executar disparo
+        env:
+          EMAIL_FROM:    ${{ secrets.EMAIL_FROM }}
+          EMAIL_PASS:    ${{ secrets.EMAIL_PASS }}
+          # Vem do input manual; no agendado usa "false" por padrão
+          MODO_TESTE:    ${{ github.event.inputs.modo_teste || 'false' }}
+          DEST_TESTE:    ${{ github.event.inputs.destinatario_teste || '' }}
+        run: python disparar_email.py
+
+      - name: 📋 Salvar log como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: log-envio-${{ github.run_id }}
+          path: "*.log"
+          retention-days: 30
