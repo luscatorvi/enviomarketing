@@ -233,26 +233,23 @@ p strong { color: #1a1a1a; }
 
 /* ======= IMAGE GRID 3col ======= */
 .img-grid-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 4px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 4px;
   margin: 28px 0 0;
+  table-layout: fixed;
 }
 .img-cell {
   overflow: hidden;
   background: #e0dbd4;
   display: block;
-  aspect-ratio: 2 / 3;
 }
-.img-cell.sq { aspect-ratio: 1 / 1; }
 .img-cell img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
 }
-.img-cell:hover img { transform: scale(1.04); }
 
 /* ======= BUTTONS ======= */
 .btn-row {
@@ -495,14 +492,18 @@ p strong { color: #1a1a1a; }
   <p>Nossa presença se estende por diversos países da América Latina, com exportações para Chile, Argentina, Uruguai, Paraguai e Nicarágua. Para atender com ainda mais proximidade o mercado norte-americano, contamos também com uma unidade própria em Miami, fortalecendo nossa conexão com os principais centros de design e decoração dos Estados Unidos.</p>
   <p><strong>Nosso propósito é claro: desenvolver tapetes que traduzem contemporaneidade, sofisticação e identidade, com o compromisso permanente de unir qualidade, autenticidade e desempenho em cada detalhe.</strong></p>
 
-  <div class="img-grid-3">
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_04.jpg" alt="Via Star" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_05.jpg" alt="Via Star" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_06.jpg" alt="Via Star" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_07.jpg" alt="Via Star" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_08.jpg" alt="Via Star" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_09.jpg" alt="Via Star" loading="lazy"></a>
-  </div>
+  <table class="img-grid-3" role="presentation" style="width:100%;border-collapse:separate;border-spacing:4px;margin:28px 0 0;">
+    <tr>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_04.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_05.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_06.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
+    </tr>
+    <tr>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_07.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_08.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_09.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
+    </tr>
+  </table>
 
 <div class="divider" style="margin-top: 32px;"></div>
 
@@ -518,11 +519,13 @@ p strong { color: #1a1a1a; }
   <p>Pensados para quem busca qualidade sem abrir mão do estilo. Nossos carpetes em placa combinam durabilidade, facilidade de instalação e uma ampla variedade de opções estéticas para atender diferentes projetos corporativos.</p>
   <p>Seja qual for o ambiente, temos a composição certa para ele.</p>
 
-  <div class="img-grid-3">
-    <a href="#" target="_blank" class="img-cell sq"><img src="https://luscatorvi.github.io/EnvioMarketing/img_10.jpg" alt="Carpetes Office" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell sq"><img src="https://luscatorvi.github.io/EnvioMarketing/img_11.jpg" alt="Carpetes Office" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell sq"><img src="https://luscatorvi.github.io/EnvioMarketing/img_12.jpg" alt="Carpetes Office" loading="lazy"></a>
-  </div>
+  <table role="presentation" style="width:100%;border-collapse:separate;border-spacing:4px;margin:28px 0 0;table-layout:fixed;">
+    <tr>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_10.jpg" alt="Carpetes Office" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_11.jpg" alt="Carpetes Office" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_12.jpg" alt="Carpetes Office" width="196" style="width:100%;height:auto;display:block;"></a></td>
+    </tr>
+  </table>
 
   <div class="btn-row">
     <a href="https://whatsa.me/5555119722835/?t=Ol%C3%A1,%20tudo%20bem?%20%20Tenho%20interesse%20em%20carpetes%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" class="btn btn-white">FALE COM UM ESPECIALISTA</a>
@@ -543,14 +546,18 @@ p strong { color: #1a1a1a; }
   <p>Além do compromisso com a arte e a tradição, a linha Ariadne abraça a responsabilidade com o futuro. Trabalhamos com materiais recicláveis, unindo consciência ambiental e design em peças que decoram com propósito. Acreditamos que beleza e sustentabilidade caminham juntas, fio a fio.</p>
   <p><strong>Mais do que tapetes, a linha Ariadne entrega histórias tecidas com alma brasileira, feitas para durar, para acolher e para transformar qualquer ambiente em um espaço com personalidade.</strong></p>
 
-  <div class="img-grid-3">
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_13.jpg" alt="Ariadne" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_14.jpg" alt="Ariadne" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_15.jpg" alt="Ariadne" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_16.jpg" alt="Ariadne" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_17.jpg" alt="Ariadne" loading="lazy"></a>
-    <a href="#" target="_blank" class="img-cell"><img src="https://luscatorvi.github.io/EnvioMarketing/img_18.jpg" alt="Ariadne" loading="lazy"></a>
-  </div>
+  <table role="presentation" style="width:100%;border-collapse:separate;border-spacing:4px;margin:28px 0 0;table-layout:fixed;">
+    <tr>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_13.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_14.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_15.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
+    </tr>
+    <tr>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_16.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_17.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_18.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
+    </tr>
+  </table>
 
 </div>
 
