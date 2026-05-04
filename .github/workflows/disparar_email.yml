@@ -2,7 +2,7 @@ name: Via Star — Disparo Expo Revestir 2026
 
 on:
   schedule:
-    - cron: "0 13 * * *"
+    - cron: "0 8 1 * 1"
   workflow_dispatch:
     inputs:
       modo_teste:
