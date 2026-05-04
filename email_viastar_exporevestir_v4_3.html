@@ -406,27 +406,39 @@ p strong { color: #1a1a1a; }
 @media screen and (max-width: 600px) {
   .email-wrapper { padding: 0; }
   .email-container { box-shadow: none; }
-  .hero { min-height: 480px; }
-  .hero-logo-bar { padding: 18px 20px 0; }
-  .logo-vs { width: 110px !important; max-width: 110px !important; }
-  .logo-expo { width: 80px !important; max-width: 80px !important; }
-  .logo-vs-wrap { padding-right: 16px; }
-  .logo-expo-wrap { padding-left: 16px; }
-  .logo-divider { height: 38px; }
-  .hero-center { padding: 16px 24px 0; }
-  .hero-title { font-size: 28px; }
-  .hero-bottom { padding: 22px 22px 28px; }
-  .qbtn { font-size: 9px; padding: 9px 12px; }
   .section, .section-warm, .section-dark { padding: 36px 20px; }
-  .img-grid-3 { gap: 3px; }
   h2 { font-size: 22px; }
-  .carpet-logo { font-size: 22px; }
-  .ariadne-name { font-size: 26px; }
-  .amostras-inner { padding: 36px 20px; }
-  .amostras-inner h2 { font-size: 22px; }
+
+  /* Hero mobile */
+  table[style*="background-image"] td[style*="linear-gradient"] table td h1 { font-size: 28px !important; }
+
+  /* Imagens grid — empilhar em 2 colunas no mobile */
+  table.img-grid-3, table[role="presentation"][style*="border-spacing:4px"] { width: 100% !important; }
+  table.img-grid-3 td, table[role="presentation"][style*="border-spacing:4px"] td {
+    width: 50% !important;
+    display: inline-block !important;
+    vertical-align: top !important;
+  }
+
+  /* Botões hero — empilhar no mobile */
+  .hero-btns-table { width: 100% !important; }
+  .hero-btns-table td {
+    display: block !important;
+    padding-right: 0 !important;
+    padding-bottom: 6px !important;
+  }
+  .hero-btns-table td a { display: block !important; text-align: center !important; }
+
+  /* Botões Próximos Passos — empilhar */
+  .nextsteps-btns td {
+    display: block !important;
+    padding-right: 0 !important;
+    padding-bottom: 8px !important;
+  }
+  .nextsteps-btns td a { display: block !important; text-align: center !important; }
+
   .nextsteps { padding: 36px 20px; }
   .footer { padding: 28px 20px 22px; }
-  .footer-inner { flex-direction: column; align-items: flex-start; }
   .footer-bot { flex-direction: column; align-items: flex-start; }
 }
 </style>
@@ -488,11 +500,7 @@ p strong { color: #1a1a1a; }
         <tr>
           <td style="padding:44px 40px 52px;">
             <p style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin:0 0 13px;font-weight:700;font-family:Arial,sans-serif;">ACESSE DIRETAMENTE</p>
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td style="padding-right:8px;padding-bottom:8px;">
-                  <a href="https://api.whatsapp.com/send?phone=551122259090" target="_blank"
-                    style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">ATENDIMENTO</a>
+            <table role="presentation" class="hero-btns-table" cellpadding="0" cellspacing="0" border="0">
                 </td>
                 <td style="padding-right:8px;padding-bottom:8px;">
                   <a href="https://www.instagram.com/viastartapetes" target="_blank"
@@ -620,7 +628,7 @@ p strong { color: #1a1a1a; }
   <div style="font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#555;margin-bottom:16px;">Próximos Passos</div>
   <h2>Vamos continuar<br>essa conversa?</h2>
   <p>Nossa equipe está pronta para atendê-lo com toda a atenção que você merece.</p>
-  <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:24px auto 0;">
+  <table role="presentation" class="nextsteps-btns" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:24px auto 0;">
     <tr>
       <td style="padding-right:6px;padding-bottom:8px;">
         <a href="https://api.whatsapp.com/send?phone=551122259090" target="_blank"
