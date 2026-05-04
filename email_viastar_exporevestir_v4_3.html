@@ -441,86 +441,74 @@ p strong { color: #1a1a1a; }
 <!-- ============================================================
      HERO - BANNER COMPLETO (table + background-image for email)
 ============================================================ -->
-<!--[if gte mso 9]>
-<v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;height:600px;">
-<v:fill type="frame" src="https://luscatorvi.github.io/EnvioMarketing/img_01.jpg" color="#111111"/>
-<v:textbox inset="0,0,0,0">
-<![endif]-->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
-  style="background-color:#111111; background-image:url('https://luscatorvi.github.io/EnvioMarketing/img_01.jpg'); background-size:cover; background-position:center center; min-height:600px;">
-  <tr>
-    <td style="padding:0; background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 20%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.82) 100%);">
-
-      <!-- Logos -->
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td style="padding:28px 40px 0; text-align:center;">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
-              <tr>
-                <td style="padding-right:18px; text-align:center; vertical-align:middle;">
-                  <a href="https://viastar.com.br/" target="_blank">
-                    <img src="https://luscatorvi.github.io/EnvioMarketing/img_02.png" alt="Via Star Tapetes e Carpetes" width="140" style="width:140px;max-width:140px;height:auto;display:block;">
-                  </a>
-                </td>
-                <td style="width:1px; background:rgba(255,255,255,0.35); padding:0; vertical-align:middle;">&nbsp;</td>
-                <td style="padding-left:18px; text-align:center; vertical-align:middle;">
-                  <img src="https://luscatorvi.github.io/EnvioMarketing/img_03.png" alt="Expo Revestir 2026" width="100" style="width:100px;max-width:100px;height:auto;display:block;">
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-
-      <!-- Texto central -->
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td style="padding:52px 40px 0; text-align:center; color:#ffffff;">
-            <p style="font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin:0 auto 18px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.3);width:160px;">Expo Revestir 2026</p>
-            <h1 style="font-size:44px;font-weight:800;letter-spacing:-0.025em;line-height:1.06;color:#ffffff;margin:0 0 18px;">Obrigado por<br>estar com a gente!</h1>
-            <p style="font-size:15px;font-weight:300;line-height:1.72;color:rgba(255,255,255,0.88);margin:0 auto;white-space:normal;">
-              Foi uma honra recebê-lo em nosso stand. Sua presença tornou a<br>edição deste ano ainda mais especial para toda a equipe Via Star.
-            </p>
-          </td>
-        </tr>
-      </table>
-
-      <!-- Botões -->
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td style="padding:44px 40px 48px;">
-            <p style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin:0 0 13px;font-weight:700;">ACESSE DIRETAMENTE</p>
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td style="padding-right:8px;padding-bottom:8px;">
-                  <a href="https://api.whatsapp.com/send?phone=551122259090" target="_blank"
-                    style="display:inline-block;padding:11px 20px;border:1.5px solid rgba(255,255,255,0.55);background:rgba(0,0,0,0.25);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;">ATENDIMENTO</a>
-                </td>
-                <td style="padding-right:8px;padding-bottom:8px;">
-                  <a href="https://www.instagram.com/viastartapetes" target="_blank"
-                    style="display:inline-block;padding:11px 20px;border:1.5px solid rgba(255,255,255,0.55);background:rgba(0,0,0,0.25);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;">INSTAGRAM</a>
-                </td>
-                <td style="padding-right:8px;padding-bottom:8px;">
-                  <a href="https://viastar.com.br/" target="_blank"
-                    style="display:inline-block;padding:11px 20px;border:1.5px solid rgba(255,255,255,0.55);background:rgba(0,0,0,0.25);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;">SITE</a>
-                </td>
-                <td style="padding-bottom:8px;">
-                  <a href="https://amostras.viastar.com.br/" target="_blank"
-                    style="display:inline-block;padding:11px 20px;border:1.5px solid rgba(255,255,255,0.55);background:rgba(0,0,0,0.25);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;">SOLICITE AMOSTRAS</a>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-
-    </td>
-  </tr>
-</table>
-<!--[if gte mso 9]>
-</v:textbox>
-</v:rect>
-<![endif]-->
+<!-- Hero: imagem de fundo real via <img> + overlay absoluto via tabela aninhada -->
+<div style="position:relative; line-height:0; font-size:0; min-height:580px;">
+  <!-- Imagem de fundo -->
+  <img src="https://luscatorvi.github.io/EnvioMarketing/img_01.jpg" alt="" width="640"
+    style="width:100%;max-width:640px;min-height:580px;object-fit:cover;display:block;">
+  <!-- Overlay gradiente + conteúdo sobreposto -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.45) 58%, rgba(0,0,0,0.92) 85%, rgba(0,0,0,0.97) 100%);
+    box-sizing:border-box;">
+    <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" style="height:100%;">
+      <tr>
+        <td style="vertical-align:top; padding:28px 40px 0; text-align:center;">
+          <!-- Logos centrados -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">
+            <tr>
+              <td style="padding-right:16px; vertical-align:middle;">
+                <a href="https://viastar.com.br/" target="_blank">
+                  <img src="https://luscatorvi.github.io/EnvioMarketing/img_02.png" alt="Via Star" width="140" style="width:140px;height:auto;display:block;">
+                </a>
+              </td>
+              <td style="width:1px; background:rgba(255,255,255,0.4); padding:0; vertical-align:middle;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_02.png" alt="" width="1" height="46" style="display:block;width:1px;height:46px;opacity:0;"></td>
+              <td style="padding-left:16px; vertical-align:middle;">
+                <img src="https://luscatorvi.github.io/EnvioMarketing/img_03.png" alt="Expo Revestir" width="100" style="width:100px;height:auto;display:block;">
+              </td>
+            </tr>
+          </table>
+          <!-- Tag Expo Revestir 2026 logo abaixo dos logos -->
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin:22px auto 0;padding-top:12px;border-top:1px solid rgba(255,255,255,0.3);display:inline-block;line-height:1;">Expo Revestir 2026</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align:middle; text-align:center; padding:0 40px;">
+          <!-- Título + Subtítulo -->
+          <h1 style="font-size:44px;font-weight:800;letter-spacing:-0.025em;line-height:1.06;color:#ffffff;margin:0 0 16px;font-family:Arial,sans-serif;">Obrigado por<br>estar com a gente!</h1>
+          <p style="font-size:15px;line-height:1.72;color:rgba(255,255,255,0.88);margin:0 auto;font-family:Arial,sans-serif;">
+            Foi uma honra recebê-lo em nosso stand. Sua presença tornou a edição deste ano ainda mais especial para toda a equipe Via Star.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align:bottom; padding:36px 40px 40px;">
+          <!-- Botões -->
+          <p style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin:0 0 12px;font-weight:700;font-family:Arial,sans-serif;">ACESSE DIRETAMENTE</p>
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="padding-right:8px;">
+                <a href="https://api.whatsapp.com/send?phone=551122259090" target="_blank"
+                  style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">ATENDIMENTO</a>
+              </td>
+              <td style="padding-right:8px;">
+                <a href="https://www.instagram.com/viastartapetes" target="_blank"
+                  style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">INSTAGRAM</a>
+              </td>
+              <td style="padding-right:8px;">
+                <a href="https://viastar.com.br/" target="_blank"
+                  style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">SITE</a>
+              </td>
+              <td>
+                <a href="https://amostras.viastar.com.br/" target="_blank"
+                  style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">SOLICITE AMOSTRAS</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
 
 
 <!-- ============================================================
@@ -535,16 +523,16 @@ p strong { color: #1a1a1a; }
   <p>Nossa presença se estende por diversos países da América Latina, com exportações para Chile, Argentina, Uruguai, Paraguai e Nicarágua. Para atender com ainda mais proximidade o mercado norte-americano, contamos também com uma unidade própria em Miami, fortalecendo nossa conexão com os principais centros de design e decoração dos Estados Unidos.</p>
   <p><strong>Nosso propósito é claro: desenvolver tapetes que traduzem contemporaneidade, sofisticação e identidade, com o compromisso permanente de unir qualidade, autenticidade e desempenho em cada detalhe.</strong></p>
 
-  <table class="img-grid-3" role="presentation" style="width:100%;border-collapse:separate;border-spacing:4px;margin:28px 0 0;">
+  <table class="img-grid-3" role="presentation" style="width:100%;border-collapse:separate;border-spacing:4px;margin:28px 0 0;table-layout:fixed;">
     <tr>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_04.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_05.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_06.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_04.jpg" alt="Via Star" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_05.jpg" alt="Via Star" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_06.jpg" alt="Via Star" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
     </tr>
     <tr>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_07.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_08.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_09.jpg" alt="Via Star" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_07.jpg" alt="Via Star" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_08.jpg" alt="Via Star" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_09.jpg" alt="Via Star" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
     </tr>
   </table>
 
@@ -564,9 +552,9 @@ p strong { color: #1a1a1a; }
 
   <table role="presentation" style="width:100%;border-collapse:separate;border-spacing:4px;margin:28px 0 0;table-layout:fixed;">
     <tr>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_10.jpg" alt="Carpetes Office" width="196" style="width:100%;height:auto;display:block;"></a></td>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_11.jpg" alt="Carpetes Office" width="196" style="width:100%;height:auto;display:block;"></a></td>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_12.jpg" alt="Carpetes Office" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_10.jpg" alt="Carpetes Office" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_11.jpg" alt="Carpetes Office" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_12.jpg" alt="Carpetes Office" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
     </tr>
   </table>
 
@@ -591,14 +579,14 @@ p strong { color: #1a1a1a; }
 
   <table role="presentation" style="width:100%;border-collapse:separate;border-spacing:4px;margin:28px 0 0;table-layout:fixed;">
     <tr>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_13.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_14.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_15.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_13.jpg" alt="Ariadne" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_14.jpg" alt="Ariadne" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_15.jpg" alt="Ariadne" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
     </tr>
     <tr>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_16.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_17.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
-      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;"><a href="#" target="_blank" style="display:block;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_18.jpg" alt="Ariadne" width="196" style="width:100%;height:auto;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_16.jpg" alt="Ariadne" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_17.jpg" alt="Ariadne" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
+      <td style="width:33.33%;padding:0;overflow:hidden;background:#e0dbd4;height:240px;"><a href="#" target="_blank" style="display:block;height:240px;overflow:hidden;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_18.jpg" alt="Ariadne" width="196" style="width:100%;height:240px;object-fit:cover;display:block;"></a></td>
     </tr>
   </table>
 
