@@ -1,8 +1,6 @@
 name: Via Star — Disparo Expo Revestir 2026
 
 on:
-  schedule:
-    - cron: "0 8 1 * 1"
   workflow_dispatch:
     inputs:
       modo_teste:
@@ -17,6 +15,14 @@ on:
         description: "E-mail para teste (opcional)"
         required: false
         default: ""
+      linha_inicio:
+        description: "Linha inicial do envio (1 = primeiro contato)"
+        required: true
+        default: "1"
+      linha_fim:
+        description: "Linha final do envio (0 = até o final)"
+        required: true
+        default: "0"
 
 jobs:
   disparar:
@@ -41,6 +47,8 @@ jobs:
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           MODO_TESTE: ${{ github.event.inputs.modo_teste || 'false' }}
           DEST_TESTE: ${{ github.event.inputs.destinatario_teste || '' }}
+          LINHA_INICIO: ${{ github.event.inputs.linha_inicio || '1' }}
+          LINHA_FIM: ${{ github.event.inputs.linha_fim || '0' }}
         run: python disparar_email.py
 
       - name: Salvar log
