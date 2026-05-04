@@ -439,76 +439,81 @@ p strong { color: #1a1a1a; }
 <div class="email-container">
 
 <!-- ============================================================
-     HERO - BANNER COMPLETO (table + background-image for email)
+     HERO - background-image na tabela (compatível com todos os clientes)
 ============================================================ -->
-<!-- Hero: imagem de fundo real via <img> + overlay absoluto via tabela aninhada -->
-<div style="position:relative; line-height:0; font-size:0; min-height:580px;">
-  <!-- Imagem de fundo -->
-  <img src="https://luscatorvi.github.io/EnvioMarketing/img_01.jpg" alt="" width="640"
-    style="width:100%;max-width:640px;min-height:580px;object-fit:cover;display:block;">
-  <!-- Overlay gradiente + conteúdo sobreposto -->
-  <div style="position:absolute;top:0;left:0;width:100%;height:100%;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.45) 58%, rgba(0,0,0,0.92) 85%, rgba(0,0,0,0.97) 100%);
-    box-sizing:border-box;">
-    <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" style="height:100%;">
-      <tr>
-        <td style="vertical-align:top; padding:28px 40px 0; text-align:center;">
-          <!-- Logos centrados -->
-          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">
-            <tr>
-              <td style="padding-right:16px; vertical-align:middle;">
-                <a href="https://viastar.com.br/" target="_blank">
-                  <img src="https://luscatorvi.github.io/EnvioMarketing/img_02.png" alt="Via Star" width="140" style="width:140px;height:auto;display:block;">
-                </a>
-              </td>
-              <td style="width:1px; background:rgba(255,255,255,0.4); padding:0; vertical-align:middle;"><img src="https://luscatorvi.github.io/EnvioMarketing/img_02.png" alt="" width="1" height="46" style="display:block;width:1px;height:46px;opacity:0;"></td>
-              <td style="padding-left:16px; vertical-align:middle;">
-                <img src="https://luscatorvi.github.io/EnvioMarketing/img_03.png" alt="Expo Revestir" width="100" style="width:100px;height:auto;display:block;">
-              </td>
-            </tr>
-          </table>
-          <!-- Tag Expo Revestir 2026 logo abaixo dos logos -->
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin:22px auto 0;padding-top:12px;border-top:1px solid rgba(255,255,255,0.3);display:inline-block;line-height:1;">Expo Revestir 2026</p>
-        </td>
-      </tr>
-      <tr>
-        <td style="vertical-align:middle; text-align:center; padding:0 40px;">
-          <!-- Título + Subtítulo -->
-          <h1 style="font-size:44px;font-weight:800;letter-spacing:-0.025em;line-height:1.06;color:#ffffff;margin:0 0 16px;font-family:Arial,sans-serif;">Obrigado por<br>estar com a gente!</h1>
-          <p style="font-size:15px;line-height:1.72;color:rgba(255,255,255,0.88);margin:0 auto;font-family:Arial,sans-serif;">
-            Foi uma honra recebê-lo em nosso stand. Sua presença tornou a edição deste ano ainda mais especial para toda a equipe Via Star.
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td style="vertical-align:bottom; padding:36px 40px 40px;">
-          <!-- Botões -->
-          <p style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin:0 0 12px;font-weight:700;font-family:Arial,sans-serif;">ACESSE DIRETAMENTE</p>
-          <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-            <tr>
-              <td style="padding-right:8px;">
-                <a href="https://api.whatsapp.com/send?phone=551122259090" target="_blank"
-                  style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">ATENDIMENTO</a>
-              </td>
-              <td style="padding-right:8px;">
-                <a href="https://www.instagram.com/viastartapetes" target="_blank"
-                  style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">INSTAGRAM</a>
-              </td>
-              <td style="padding-right:8px;">
-                <a href="https://viastar.com.br/" target="_blank"
-                  style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">SITE</a>
-              </td>
-              <td>
-                <a href="https://amostras.viastar.com.br/" target="_blank"
-                  style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">SOLICITE AMOSTRAS</a>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+  style="background-image:url('https://luscatorvi.github.io/EnvioMarketing/img_01.jpg');background-size:cover;background-position:center top;background-color:#1a1410;">
+  <tr>
+    <td style="padding:0;background:linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.32) 30%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.96) 82%, rgba(0,0,0,1.0) 100%);">
+
+      <!-- Logos -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding:32px 40px 0;text-align:center;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+              <tr>
+                <td style="padding-right:16px;vertical-align:middle;">
+                  <a href="https://viastar.com.br/" target="_blank">
+                    <img src="https://luscatorvi.github.io/EnvioMarketing/img_02.png" alt="Via Star" width="140" style="width:140px;height:auto;display:block;">
+                  </a>
+                </td>
+                <td style="width:1px;padding:0;vertical-align:middle;background:rgba(255,255,255,0.4);">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="1" height="46" style="display:block;width:1px;height:46px;">
+                </td>
+                <td style="padding-left:16px;vertical-align:middle;">
+                  <img src="https://luscatorvi.github.io/EnvioMarketing/img_03.png" alt="Expo Revestir" width="100" style="width:100px;height:auto;display:block;">
+                </td>
+              </tr>
+            </table>
+            <p style="font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin:20px auto 0;padding-top:12px;border-top:1px solid rgba(255,255,255,0.3);display:inline-block;line-height:1;font-family:Arial,sans-serif;">Expo Revestir 2026</p>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Título + Subtítulo -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding:40px 48px 0;text-align:center;">
+            <h1 style="font-size:44px;font-weight:800;letter-spacing:-0.025em;line-height:1.06;color:#ffffff;margin:0 0 18px;font-family:Arial,sans-serif;">Obrigado por<br>estar com a gente!</h1>
+            <p style="font-size:15px;line-height:1.72;color:rgba(255,255,255,0.88);margin:0 auto;font-family:Arial,sans-serif;">
+              Foi uma honra recebê-lo em nosso stand. Sua presença tornou a edição deste ano ainda mais especial para toda a equipe Via Star.
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Botões -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding:44px 40px 52px;">
+            <p style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin:0 0 13px;font-weight:700;font-family:Arial,sans-serif;">ACESSE DIRETAMENTE</p>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="padding-right:8px;padding-bottom:8px;">
+                  <a href="https://api.whatsapp.com/send?phone=551122259090" target="_blank"
+                    style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">ATENDIMENTO</a>
+                </td>
+                <td style="padding-right:8px;padding-bottom:8px;">
+                  <a href="https://www.instagram.com/viastartapetes" target="_blank"
+                    style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">INSTAGRAM</a>
+                </td>
+                <td style="padding-right:8px;padding-bottom:8px;">
+                  <a href="https://viastar.com.br/" target="_blank"
+                    style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">SITE</a>
+                </td>
+                <td style="padding-bottom:8px;">
+                  <a href="https://amostras.viastar.com.br/" target="_blank"
+                    style="display:inline-block;padding:11px 18px;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">SOLICITE AMOSTRAS</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
 
 
 <!-- ============================================================
@@ -595,16 +600,18 @@ p strong { color: #1a1a1a; }
 <!-- ============================================================
      SOLICITE AMOSTRAS
 ============================================================ -->
-<div class="amostras-wrap">
-  <img src="https://luscatorvi.github.io/EnvioMarketing/img_19.jpg" alt="" class="amostras-bg" role="presentation">
-  <div class="amostras-overlay"></div>
-  <div class="amostras-inner">
-    <div class="small-tag">Conheça de perto</div>
-    <h2>Sinta a diferença<br>no detalhe.</h2>
-    <p>Solicite suas amostras e experimente a qualidade Via Star antes de decidir. Escolha com confiança.</p>
-    <a href="https://amostras.viastar.com.br/" target="_blank" class="btn btn-white">SOLICITE AMOSTRAS</a>
-  </div>
-</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+  style="background-image:url('https://luscatorvi.github.io/EnvioMarketing/img_19.jpg');background-size:cover;background-position:center center;background-color:#111111;">
+  <tr>
+    <td style="padding:56px 40px;text-align:center;background:rgba(0,0,0,0.68);">
+      <p style="font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin:0 0 18px;font-family:Arial,sans-serif;">CONHEÇA DE PERTO</p>
+      <h2 style="font-size:30px;font-weight:700;letter-spacing:-0.02em;line-height:1.18;color:#ffffff;margin:0 0 14px;font-family:Arial,sans-serif;">Sinta a diferença<br>no detalhe.</h2>
+      <p style="font-size:14px;line-height:1.78;color:rgba(255,255,255,0.78);max-width:400px;margin:0 auto 28px;font-family:Arial,sans-serif;">Solicite suas amostras e experimente a qualidade Via Star antes de decidir. Escolha com confiança.</p>
+      <a href="https://amostras.viastar.com.br/" target="_blank"
+        style="display:inline-block;padding:14px 32px;background:#ffffff;color:#000000;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;font-family:Arial,sans-serif;">SOLICITE AMOSTRAS</a>
+    </td>
+  </tr>
+</table>
 
 <!-- ============================================================
      PRÓXIMOS PASSOS
