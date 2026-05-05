@@ -1,8 +1,7 @@
 """
 Via Star — Disparador de E-mail | GitHub Actions
 =================================================
-Todas as configs sensíveis vêm de variáveis de ambiente (Secrets do GitHub).
-Configs não-sensíveis ficam em config.py.
+Reconexão automática ao SMTP + retomada a partir de linha específica.
 """
 
 import os
@@ -22,10 +21,11 @@ from config import (
     TEMPLATE_HTML, PAUSA_ENTRE_ENVIOS,
 )
 
-EMAIL_FROM = os.environ["EMAIL_FROM"]
-EMAIL_PASS = os.environ["EMAIL_PASS"]
-MODO_TESTE = os.environ.get("MODO_TESTE", "false").lower() == "true"
-DEST_TESTE = os.environ.get("DEST_TESTE", "").strip()
+EMAIL_FROM   = os.environ["EMAIL_FROM"]
+EMAIL_PASS   = os.environ["EMAIL_PASS"]
+MODO_TESTE   = os.environ.get("MODO_TESTE", "false").lower() == "true"
+DEST_TESTE   = os.environ.get("DEST_TESTE", "").strip()
+LINHA_INICIO = int(os.environ.get("LINHA_INICIO", "1"))
 
 log_file = f"envios_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 logging.basicConfig(
@@ -37,6 +37,17 @@ logging.basicConfig(
     ],
 )
 log = logging.getLogger(__name__)
+
+
+def conectar_smtp():
+    context = ssl.create_default_context()
+    server = smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=30)
+    server.ehlo()
+    server.starttls(context=context)
+    if not MODO_TESTE:
+        server.login(EMAIL_FROM, EMAIL_PASS)
+    log.info("🔌 Conectado ao SMTP.")
+    return server
 
 
 def carregar_contatos() -> pd.DataFrame:
@@ -58,7 +69,15 @@ def carregar_contatos() -> pd.DataFrame:
 
     df = df.dropna(subset=[COL_EMAIL])
     df[COL_EMAIL] = df[COL_EMAIL].str.strip().str.lower()
-    log.info(f"{len(df)} contatos carregados de '{PLANILHA}'")
+    df = df.reset_index(drop=True)
+
+    # Retoma a partir da linha informada
+    if LINHA_INICIO > 1:
+        df = df.iloc[LINHA_INICIO - 1:]
+        log.info(f"Retomando a partir da linha {LINHA_INICIO} — {len(df)} contatos restantes.")
+    else:
+        log.info(f"{len(df)} contatos carregados de '{PLANILHA}'")
+
     return df
 
 
@@ -101,42 +120,58 @@ def disparar():
     enviados  = 0
     falhas    = 0
 
-    context = ssl.create_default_context()
+    try:
+        server = conectar_smtp()
+    except smtplib.SMTPAuthenticationError:
+        log.critical("❌ Falha de autenticação. Verifique os Secrets EMAIL_FROM e EMAIL_PASS.")
+        raise SystemExit(1)
+
+    for i, (_, row) in enumerate(df.iterrows()):
+        email = row[COL_EMAIL]
+        nome  = (
+            str(row[COL_NOME]).strip()
+            if COL_NOME in df.columns and pd.notna(row.get(COL_NOME))
+            else ""
+        )
+
+        # Reconecta a cada 200 envios
+        if i > 0 and i % 200 == 0:
+            try:
+                server.quit()
+            except Exception:
+                pass
+            log.info("🔄 Reconectando ao SMTP...")
+            time.sleep(3)
+            server = conectar_smtp()
+
+        try:
+            msg = montar_mensagem(email, nome, html_base)
+            if not MODO_TESTE:
+                server.sendmail(EMAIL_FROM, email, msg.as_string())
+            enviados += 1
+            log.info(f"[{enviados}/{total}] ✅  {email}")
+            time.sleep(PAUSA_ENTRE_ENVIOS)
+
+        except smtplib.SMTPServerDisconnected:
+            log.warning(f"⚠️  Conexão perdida em {email}. Reconectando...")
+            time.sleep(5)
+            server = conectar_smtp()
+            try:
+                server.sendmail(EMAIL_FROM, email, msg.as_string())
+                enviados += 1
+                log.info(f"[{enviados}/{total}] ✅  {email} (após reconexão)")
+            except Exception as e:
+                falhas += 1
+                log.error(f"[FALHA] {email} — {e}")
+
+        except Exception as e:
+            falhas += 1
+            log.error(f"[FALHA] {email} — {e}")
 
     try:
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
-            server.ehlo()
-            server.starttls(context=context)
-            if not MODO_TESTE:
-                server.login(EMAIL_FROM, EMAIL_PASS)
-
-            for _, row in df.iterrows():
-                email = row[COL_EMAIL]
-                nome  = (
-                    str(row[COL_NOME]).strip()
-                    if COL_NOME in df.columns and pd.notna(row.get(COL_NOME))
-                    else ""
-                )
-
-                try:
-                    msg = montar_mensagem(email, nome, html_base)
-                    if not MODO_TESTE:
-                        server.sendmail(EMAIL_FROM, email, msg.as_string())
-                    enviados += 1
-                    log.info(f"[{enviados}/{total}] ✅  {email}")
-                    time.sleep(PAUSA_ENTRE_ENVIOS)
-
-                except Exception as e:
-                    falhas += 1
-                    log.error(f"[FALHA] {email} — {e}")
-
-    except smtplib.SMTPAuthenticationError:
-        log.critical(
-            "❌ Falha de autenticação.\n"
-            "   Verifique os Secrets EMAIL_FROM e EMAIL_PASS no GitHub.\n"
-            "   Outlook/365: use a senha normal da conta Microsoft."
-        )
-        raise SystemExit(1)
+        server.quit()
+    except Exception:
+        pass
 
     log.info(f"\n{'─'*50}")
     log.info(f"Concluído — Enviados: {enviados} | Falhas: {falhas} | Total: {total}")
