@@ -22,18 +22,10 @@ from config import (
     TEMPLATE_HTML, PAUSA_ENTRE_ENVIOS,
 )
 
-# ─────────────────────────────────────────────
-#  Lê variáveis de ambiente (GitHub Secrets)
-# ─────────────────────────────────────────────
-
-EMAIL_FROM   = os.environ["EMAIL_FROM"]
-EMAIL_PASS   = os.environ["EMAIL_PASS"]
-MODO_TESTE   = os.environ.get("MODO_TESTE", "false").lower() == "true"
-DEST_TESTE   = os.environ.get("DEST_TESTE", "").strip()
-
-# ─────────────────────────────────────────────
-#  Log
-# ─────────────────────────────────────────────
+EMAIL_FROM = os.environ["EMAIL_FROM"]
+EMAIL_PASS = os.environ["EMAIL_PASS"]
+MODO_TESTE = os.environ.get("MODO_TESTE", "false").lower() == "true"
+DEST_TESTE = os.environ.get("DEST_TESTE", "").strip()
 
 log_file = f"envios_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 logging.basicConfig(
@@ -47,12 +39,7 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 
-# ─────────────────────────────────────────────
-#  Carrega contatos
-# ─────────────────────────────────────────────
-
 def carregar_contatos() -> pd.DataFrame:
-    # Modo teste com destinatário avulso
     if DEST_TESTE:
         log.info(f"Modo teste com destinatário avulso: {DEST_TESTE}")
         return pd.DataFrame([{COL_EMAIL: DEST_TESTE, COL_NOME: "Teste"}])
@@ -75,20 +62,12 @@ def carregar_contatos() -> pd.DataFrame:
     return df
 
 
-# ─────────────────────────────────────────────
-#  Carrega HTML
-# ─────────────────────────────────────────────
-
 def carregar_html() -> str:
     path = Path(TEMPLATE_HTML)
     if not path.exists():
         raise FileNotFoundError(f"Template HTML não encontrado: {TEMPLATE_HTML}")
     return path.read_text(encoding="utf-8")
 
-
-# ─────────────────────────────────────────────
-#  Monta mensagem
-# ─────────────────────────────────────────────
 
 def montar_mensagem(email: str, nome: str, html_base: str) -> MIMEMultipart:
     msg = MIMEMultipart("alternative")
@@ -101,7 +80,7 @@ def montar_mensagem(email: str, nome: str, html_base: str) -> MIMEMultipart:
 
     texto = (
         f"Olá{', ' + nome_fmt if nome_fmt else ''}!\n\n"
-        "A Via Star estará na Expo Revestir 2026.\n"
+        "A Via Star esteve na Expo Revestir 2026.\n"
         "Venha nos visitar!\n\n"
         "WhatsApp: +55 11 2225-9090\n"
         "viastar.com.br\n"
@@ -111,10 +90,6 @@ def montar_mensagem(email: str, nome: str, html_base: str) -> MIMEMultipart:
     msg.attach(MIMEText(html, "html", "utf-8"))
     return msg
 
-
-# ─────────────────────────────────────────────
-#  Disparo principal
-# ─────────────────────────────────────────────
 
 def disparar():
     if MODO_TESTE:
@@ -166,7 +141,6 @@ def disparar():
     log.info(f"\n{'─'*50}")
     log.info(f"Concluído — Enviados: {enviados} | Falhas: {falhas} | Total: {total}")
 
-    # Falha o job se houver erros (aparece como ❌ no GitHub Actions)
     if falhas > 0:
         raise SystemExit(1)
 
