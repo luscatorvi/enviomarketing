@@ -15,6 +15,10 @@ on:
         description: "E-mail para teste (opcional)"
         required: false
         default: ""
+      linha_inicio:
+        description: "Retomar a partir da linha (1 = começo, 214 = após 213 enviados)"
+        required: true
+        default: "1"
 
 jobs:
   disparar:
@@ -39,6 +43,7 @@ jobs:
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           MODO_TESTE: ${{ github.event.inputs.modo_teste || 'false' }}
           DEST_TESTE: ${{ github.event.inputs.destinatario_teste || '' }}
+          LINHA_INICIO: ${{ github.event.inputs.linha_inicio || '1' }}
         run: python disparar_email.py
 
       - name: Salvar log
